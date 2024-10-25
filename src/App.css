@@ -37,7 +37,7 @@ span{
 .card img{
   height: 250px;
 }
-.address{
+.address, .address1{
   padding-bottom: 0;
 }
 .action{
@@ -45,4 +45,8 @@ span{
 }
 .btn{
   padding: 10px 25px;
+}
+.btn svg{
+  fill: white;
+  height: 24px;
 }

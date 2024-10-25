@@ -1,7 +1,7 @@
 const AddData = ({formSubmit, handleInput, userInput, inputError}) => {
     return(
         <>  
-            <h1 className="mb-5">Form Handeling</h1>
+            <h1 className="mb-5">Employee Management CRUD</h1>
             <div className="container">
                 <form onSubmit={formSubmit} className="row g-3">
                     <div className="col-12">
@@ -13,7 +13,13 @@ const AddData = ({formSubmit, handleInput, userInput, inputError}) => {
                         {inputError.fname ? <span>{inputError.fname}</span> : ''}
                         <br/><br />
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-3">
+                        <label className="form-label d-flex">Age :</label>
+                        <input type="number" className="form-control" placeholder="Enter Your Age" name="age" onChange={handleInput} value={userInput.age} />
+                        {inputError.age ? <span>{inputError.age}</span> : ''}
+                        <br/><br />
+                    </div>
+                    <div className="col-md-3">
                         <label className="form-label d-flex">DOB :</label>
                         <input type="date" className="form-control" placeholder="Enter Birth Date" name="dob" onChange={handleInput} value={userInput.dob} />
                         {inputError.dob ? <span>{inputError.dob}</span> : ''}
@@ -28,7 +34,7 @@ const AddData = ({formSubmit, handleInput, userInput, inputError}) => {
 
                     <div className="col-7">
                         <label className="form-label d-flex">Email :</label>
-                        <input type="email" className="form-control" placeholder="Enter Your Email" name="email" onChange={handleInput} value={userInput.email} />
+                        <input type="text" className="form-control" placeholder="Enter Your Email" name="email" onChange={handleInput} value={userInput.email} />
                         {inputError.email ? <span>{inputError.email}</span> : ''}
                         <br /><br />
                     </div>
@@ -49,7 +55,7 @@ const AddData = ({formSubmit, handleInput, userInput, inputError}) => {
 
                     <div className="col-md-4">
                         <label className="form-label d-flex">Contact :</label>
-                        <input type="number" className="form-control" placeholder="Enter Your Contact No" name="contact" onChange={handleInput} value={userInput.contact} />
+                        <input type="text" className="form-control" placeholder="Enter Your Contact No" name="contact" onChange={handleInput} value={userInput.contact} />
                         {inputError.contact ? <span>{inputError.contact}</span> : ''}
                         <br />
                     </div>

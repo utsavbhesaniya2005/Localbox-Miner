@@ -11,6 +11,7 @@ const UserForm = () => {
         id : '',
         fname : '',
         dob : '', 
+        age : '',
         add : '',
         email : '',
         des : '',
@@ -30,6 +31,14 @@ const UserForm = () => {
         if(userInput.fname == ''){
             obj.fname = "Name Must Be Required...";
         }
+        
+        if(userInput.age == ''){
+            obj.age = "Age Must Be Required...";
+        }else{
+            if(userInput.age < 1){
+                obj.age = "Age Cannot Be Negative Or Zero";
+            }
+        }
 
         if(userInput.dob == ''){
             obj.dob = "Birth Date Must Be Required...";
@@ -41,6 +50,12 @@ const UserForm = () => {
 
         if(userInput.email == ''){
             obj.email = "Email Must Be Required...";
+        }else{
+            let emailPat = /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/gm;
+            
+            if(!emailPat.test(userInput.email)){
+                obj.email = 'Invalid Email Format';
+            }
         }
 
         if(userInput.des == ''){
@@ -53,10 +68,22 @@ const UserForm = () => {
         
         if(userInput.contact == ''){
             obj.contact = "Contact Must Be Required...";
+        }else{
+            let contactPat = /((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}/;
+
+            if(!contactPat.test(userInput.contact)){
+                obj.contact = "Contact Can Only Number & Must Be 10 Digit";
+            }
         }
 
         if(userInput.city == ''){
             obj.city = "City Must Be Required...";
+        }else{
+            let cityPat = /^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/;
+
+            if(!cityPat.test(userInput.city)){
+                obj.city = "Invalid Format Of City";
+            }
         }
 
         setInputError(obj);
@@ -128,6 +155,7 @@ const UserForm = () => {
                 id: '',
                 fname : '',
                 dob : '',
+                age : '',
                 add : '',
                 email : '',
                 des : '',
